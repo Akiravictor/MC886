@@ -38,13 +38,22 @@ lin_mse = mse(Y_test,Y_linear_pred)
 lin_rmse = np.sqrt(lin_mse)
 
 #lin_rmse is too high -> 10.07
+#So let's recalculate the X
+
+#1st we'll add a new column of one's
+X = np.append(arr = np.ones((463715,1)).astype(int), values = X, axis = 1)
+Thetas = np.append(intercept, coefs)
+Thetas = Thetas.reshape((13,1))
+
 
 alpha = 0.1
 n_iterations = 100
+m = 13
 
 for i in range(n_iterations):
-    grad = 1/12 * X_train.T.dot(X.dot(coefs) - Y_train)
-    coefs = coefs - alpha*grad
+    H = X.dot(Thetas)
+    temp_theta = 
+    
 
 
 
