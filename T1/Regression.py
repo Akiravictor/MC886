@@ -41,20 +41,43 @@ lin_rmse = np.sqrt(lin_mse)
 #So let's recalculate the X
 
 #1st we'll add a new column of one's
-X = np.append(arr = np.ones((463715,1)).astype(int), values = X, axis = 1)
-Thetas = np.append(intercept, coefs)
-Thetas = Thetas.reshape((13,1))
+X_train = np.append(arr = np.ones((370972,1)).astype(int), values = X_train, axis = 1)
+Theta = np.append(intercept, coefs)
+Theta = Theta.reshape((13,1))
 
+#Defining parms for Gradient Descend
+alpha = 10000000
+n_iterations = 10
 
-alpha = 0.1
-n_iterations = 100
-m = 13
+#Calculate all H(x)
+H = X_train.dot(Theta)
+
+#Initate auxilary vars
+Temp_Theta = np.zeros(np.shape(Theta))
+Sum = np.zeros(np.shape(Theta))
+J_theta = np.zeros(np.shape(Theta))
+
+def soma():
+    for i in range(len(Theta)):
+        for j in range(len(H)):
+            Sum[i] = Sum[i] + (H[j] - Y_train[j])*X_train[j,i]
+            
+#Calculating the first Sum
+soma()
 
 for i in range(n_iterations):
-    H = X.dot(Thetas)
-    temp_theta = 
+    for j in range(len(Theta)):
+        J_theta[j] = 1/len(H)*sum[j]
+        Temp_Theta[j] = Theta[j] - alpha*J_theta[j]
+        
+    Theta = Temp_Theta
+    #Recalculate H(x) with new Thetas
+    H = X_train.dot(Theta)
+    #Reset sum
+    Sum = np.zeros(np.shape(Theta))
+    #Recalculate new Sum
+    soma()
     
-
 
 
 
@@ -91,5 +114,4 @@ regressor_OLS = sm.OLS(endog = Y, exog = X_opt).fit()
 regressor_OLS.summary()
 
 
-##### Manual Regression #####
 
