@@ -1,0 +1,4 @@
+*.txt
+*.csv
+T2/test/*
+T2/train/*
