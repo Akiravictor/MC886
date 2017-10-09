@@ -2,3 +2,4 @@
 *.csv
 T2/test/*
 T2/train/*
+T2/cifar/*
