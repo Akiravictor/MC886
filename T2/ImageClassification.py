@@ -29,3 +29,22 @@ pylab.axis('off')
 pylab.figure()
 
 pylab.hist(imageGrayArr.flatten(),128)
+
+activation = "tanh"
+
+if activation == "tanh":
+    print("tf.nn.tanh")
+if activation == "relu":
+    print("relu")
+    
+    
+import tensorflow as tf
+
+tf.nn.relu()
+
+from tensorflow.examples.tutorials.mnist import input_data
+
+mnist = input_data.read_data_sets("../")
+
+
+tf.contrib.learn.DNNClassifier()
