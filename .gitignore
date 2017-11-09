@@ -1,5 +1,8 @@
 *.txt
 *.csv
+*.npy
 T2/test/*
 T2/train/*
 T2/cifar/*
+T3/docs/*
+T3/ids
